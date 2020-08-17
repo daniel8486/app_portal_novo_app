@@ -1,0 +1,2 @@
+module Pages::DiceHelper
+end

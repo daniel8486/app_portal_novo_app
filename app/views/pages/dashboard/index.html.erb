@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>PORTAL | PINTOS LTDA </title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    
+</head>
+
+<body>
+    
+            <!-- End Navbar -->
+            <div class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="card ">
+                                <div class="card-header ">
+                                    <h2 class="card-title">Meus Dados</h2>
+                                    <p class="card-category">veja seus dados pessoais</p>
+                                </div>
+                                <div class="card-body ">
+                                  <%= link_to 'Dados', '/v1/wsdl/meus-dados', class: 'btn btn-primary'%>
+                                  <hr>
+                                  <a href="#" class="btn btn-primary"> Alteração Cadastral </a>
+                                    <hr>
+                                    <div class="stats">
+                                        <i class="fa fa-clock-o"></i> * Dados Pessoais
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-4">
+                     <div class="card ">
+                                <div class="card-header ">
+                                    <h2 class="card-title">Pagamentos</h2>
+                                    <p class="card-category">veja seus contra cheques</p>
+                                </div>
+                                <div class="card-body ">
+                                  <%= link_to 'Contra-Cheque', '/v1/wsdl/inicio', class: 'btn btn-primary'%> 
+                                  <hr>
+                                  <%= link_to 'Informe de Rendimentos', '/v1/wsdl/inicio', class: 'btn btn-primary'%> 
+                                  <hr>
+                                  <%= link_to 'Histórico Salarial', '/v1/wsdl/inicio', class: 'btn btn-primary'%> 
+                                    <hr>
+                                    <div class="stats">
+                                        <i class="fa fa-clock-o"></i> * Dados Financeiros
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-4">
+                            <div class="card ">
+                                <div class="card-header ">
+                                    <h2 class="card-title">Espelho de Ponto</h2>
+                                    <p class="card-category">veja seus dados</p>
+                                </div>
+                                <div class="card-body ">
+                                  <%= link_to 'Espelho de Ponto', '/v1/wsdl/espelho-do-ponto', class: "btn btn-primary"%> 
+                                  <hr>
+                                 
+                                   <%= link_to 'Justificativas de Exceções', 'v1/wsdl/justificativa-de-excessoes', class: "btn btn-primary"%> 
+                                  
+                                    <hr>
+                                    <div class="stats">
+                                        <i class="fa fa-clock-o"></i> * Dados do Ponto do Funcionário
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                  
+                  
+
+                </div>
+
+            </div>
+
+</body>
+
+
+</html>
+
+

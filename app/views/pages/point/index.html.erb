@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title> PORTAL | PINTOS LTDA </title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+</head>
+
+<body>
+    
+            <!-- End Navbar -->
+            <div class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card strpied-tabled-with-hover">
+                                <div class="card-header ">
+                                <hr>
+                                    <h4 class="card-title">Consulte os Registros dos pontos</h4>
+                                <hr>    
+                                 <%= form_tag pages_point_index_path do %>
+                                   <div class="row">
+                                     <div class="col">
+                                       <label>Informe uma Data Inicial :</label>
+                                       <%= date_field_tag :data_ini , "", class: 'form-control' %>
+                                     </div>
+                                     <div class="col">
+                                       <label>Informe uma Data Final : </label>
+                                       <%= date_field_tag :data_fim , "", class: 'form-control'%> 
+                                     </div>
+                                      
+                                       <%= submit_tag "Enviar" , class: 'btn btn-primary'%>
+                                     
+                                   </div>
+                                 <% end %>
+                                       
+                                </div>
+                                <div class="card-body table-full-width table-responsive">
+                                    <table class="table table-hover table-striped">
+                                        <thead>
+                                            <th>Batidas</th>
+                                            <th>Horario</th>
+                                            <th>Data</th>
+                                        </thead>
+                                         <hr>
+                                        <% if @result.present? %>
+                                         <% @result.each do |point| %> 
+                                        <tbody>
+                                            <tr>
+                                                <td><%= point.try(:BATIDAS).try(:content)%></td>
+                                                <td><%= point.try(:HORARIO).try(:content) %></td>
+                                                <td><%= point.try(:DATA).try(:content)%></td>
+                                            </tr>
+                                            <% end %>           
+                                         <% end %> 
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                          
+        </div>
+    </div>
+
+</body>
+
+
+
+</html>
+
+

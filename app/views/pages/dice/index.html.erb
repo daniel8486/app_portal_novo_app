@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>PORTAL | PINTOS LTDA</title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+</head>
+
+<body>
+
+            <div class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="card">
+                                <div class="card-header">
+                                   <hr>
+                                    <h4 class="card-title">Dados Usuário</h4>
+                                  <hr>
+                                </div>
+                                <div class="card-body">
+                                    <form>
+                                        <div class="row">
+                                            <div class="col-md-2 pr-1">
+                                                <div class="form-group">
+                                                    <label>CHAPA</label>
+                                                    <input type="text" class="form-control" disabled="" placeholder="Company" value="<%= @result.try(:CHAPA).try(:content) %>">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2 px-1">
+                                                <div class="form-group">
+                                                    <label>Cod Pessoa</label>
+                                                    <input type="text" class="form-control" disabled="" placeholder="Username" value="<%= @result.try(:CODPESSOA).try(:content)  %>">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 pl-1">
+                                                <div class="form-group">
+                                                    <label for="exampleInputEmail1">Email</label>
+                                                    <input type="email" class="form-control" disabled="" placeholder="Email" value="<%= @result.try(:EMAIL).try(:content) %> ">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 pl-1">
+                                                <div class="form-group">
+                                                     <label>Data de Nascimento</label>
+                                                    <input type="text" class="form-control" placeholder="Company" value="<%= @result.try(:DTNASCIMENTO).try(:content)  %>" disabled="" >
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <h4 class="card-title">Dados Pessoais</h4>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-md-3 pr-1">
+                                                <div class="form-group">
+                                                    <label>CPF</label>
+                                                    <input type="text" class="form-control" placeholder="Company" value="<%= @result.try(:CPF).try(:content)  %>" disabled="" >
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 pl-1">
+                                                <div class="form-group">
+                                                    <label>Identidade</label>
+                                                    <input type="text" class="form-control" placeholder="Identidade" value=" <%= @result.try(:CARTIDENTIDADE).try(:content)  %>" disabled="" >
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 pl-1">
+                                                <div class="form-group">
+                                                    <label>Titulo de Eleitor</label>
+                                                    <input type="text" class="form-control" placeholder="Titulo de Eleitor" value=" <%= @result.try(:TITULOELEITOR).try(:content)  %>" disabled="" >
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2 pl-1">
+                                                <div class="form-group">
+                                                    <label>Seção</label>
+                                                    <input type="text" class="form-control" placeholder="Seção" value=" <%= @result.try(:SECAOTITELEITOR).try(:content) %> " disabled="" >
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <h4 class="card-title">Formação</h4>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Escolaridade</label>
+                                                    <input type="text" class="form-control" placeholder="Home Address" value="<%= @result.try(:DESCRICAO).try(:content) %>" disabled="" >
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <h4 class="card-title">Filiação</h4>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-md-4 pr-1">
+                                                <div class="form-group">
+                                                    <label>Mãe</label>
+                                                    <input type="text" class="form-control" placeholder="City" value="<%= @result.try(:NOME_x0020_DA_x0020_MAE).try(:content) %>" disabled="" >
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 px-1">
+                                                <div class="form-group">
+                                                    <label>Pai</label>
+                                                    <input type="text" class="form-control" placeholder="Country" value="<%= @result.try(:NOME_x0020_DA_x0020_PAI).try(:content) %> " disabled="">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 pl-1">
+                                                <div class="form-group">
+                                                    <label>Conjuge</label>
+                                                    <input type="text" class="form-control" placeholder="Conjuge" value="<%= @result.try(:NOME5).try(:content) %>" disabled="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label>Filhos</label>
+                                                    <input type="text" class="form-control" placeholder="Conjuge" value="<%= @result.try(:NOME1).try(:content) %>" disabled="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card card-user">
+                                <div class="card-image">
+                                    
+                                </div>
+                                <div class="card-body">
+                                    <div class="author">
+                                        
+                                            <%= image_tag "data:image/jpeg;base64,#{@result.try(:IMAGEM).try(:content)}" , class: 'img-thumbnail' , size: "150x150"%>
+                                            <hr>
+                                            <h4 class="title"> <strong> <%= @result.try(:NOME).try(:content)  %> </strong> </h4>
+                                            <hr>
+                                            <p>CHAPA: <%= @result.try(:CHAPA).try(:content) %> </p>
+                                            <hr>
+                                            <p>COD PESSOA: <%= @result.try(:CODPESSOA).try(:content)  %> </p>
+                                    </div>
+                                 
+                                </div>
+                                <hr>
+                                <div class="button-container mr-auto ml-auto">
+                                    <p> FUNÇÃO: <strong>  <%= @result.try(:FUNCAO).try(:content)  %>   </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+   
+</body>
+
+
+</html>
+

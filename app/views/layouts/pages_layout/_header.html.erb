@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>PORTAL | PINTOS LTDA </title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200"/>
+    
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="sidebar">
+            <!--
+        Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
+
+        Tip 2: you can also add an image using data-image tag
+    -->
+            <div class="sidebar-wrapper">
+                <div class="logo">
+                    <%= link_to 'PORTAL | PINTOS LTDA' , '/v1/wsdl/inicio' , class: 'simple-text'%>
+                    <!--  --> 
+                </div>
+                <ul class="nav">
+                    <li class="nav-item active">
+                       <%= link_to 'Inicio' , '/v1/wsdl/inicio' , class: 'nav-link'%> 
+                        
+                    </li>
+                    <li>
+                       <%= link_to 'Meus Dados' , '/v1/wsdl/meus-dados', class: 'nav-link'%> 
+                        
+                    </li>
+                    <li>
+                       <%= link_to 'Pagamentos' , 'http://contracheque.pintos.com.br' , class: 'nav-link'%> 
+                        
+                    </li>
+                    <li>
+                        
+                      <%= link_to 'Espelho de Ponto' , '/v1/wsdl/espelho-do-ponto',  class: 'nav-link'%> 
+                      
+                        
+                    <li>
+                      <%= link_to 'Justificar' , '/v1/wsdl/justificativa-de-excessoes', class: 'nav-link'%> 
+                        
+                    </li>
+                
+                </ul>
+            </div>
+        </div>
+        <div class="main-panel">
+            <!-- Navbar -->
+            <nav class="navbar navbar-expand-lg " color-on-scroll="500">
+                <div class="container-fluid">
+                    <%= link_to 'Dashboard', '/v1/wsdl/inicio' , class: 'navbar-brand'%>
+                    <button href="" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-bar burger-lines"></span>
+                        <span class="navbar-toggler-bar burger-lines"></span>
+                        <span class="navbar-toggler-bar burger-lines"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-end" id="navigation">
+                       
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                               
+                               <%= link_to 'SAIR' , pages_dashboard_destroy_path(params[:username],params[:password]), method: :delete, data: { confirm: 'Tem Certeza?' }, class: "nav-link" %> 
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- End Navbar -->
+            
+</body>
+
+
+</html>
+
+
+
+

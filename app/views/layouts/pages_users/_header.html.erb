@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <title> Portal Pintos </title>
+
+
+    <!-- Favicons -->
+
+<meta name="theme-color" content="#563d7c">
+
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body class="text-center">
+    <form class="form-signin">
+    <%= form_tag users_login_index_path do %>
+     
+  <img class="mb-4" src="https://www.oster.com.br/arquivos/_OSTERBRASIL_campanha-natal-2017-pintos.png" alt="" width="250" height="100">
+  <h1 class="h3 mb-3 font-weight-normal">Portal | Pintos LTDA</h1>
+  <label for="inputText" class="sr-only">Usuário</label>
+   <%= text_field_tag :username , "", class: 'form-control',placeholder: "Usuário"%>
+  <label for="inputPassword" class="sr-only">Senha</label>
+   <%= text_field_tag :password , "", class: 'form-control',placeholder: "Senha", type: 'password'%>
+  <div class="checkbox mb-3">
+  <% if flash[:alert].present? %>
+   <div class="alert alert-danger alert-dismissible fade show" role="alert">
+               <strong><%= flash[:alert]%> </strong> 
+     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+     <span aria-hidden="true">&times;</span>
+  </button>
+    <% end %>
+    
+  </div>
+    <label>
+      <input type="checkbox" value="remember-me"> Ajuda
+    </label>
+  </div>
+  <%= submit_tag "Acessar" , class: 'btn btn-lg btn-primary btn-block'%>
+  <p class="mt-5 mb-3 text-muted">&copy; 2019-2020</p>
+   <%# end %>
+  <% end %>
+</form>
+</body>
+</html>
