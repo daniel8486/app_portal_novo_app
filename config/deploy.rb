@@ -14,7 +14,7 @@ set :branch, 'master'
 set :keep_releases, 5
 set :format, :airbrussh
 set :log_level, :debug
-append :linked_files, "config/database.yml"
+append :linked_files, "config/database.yml", "config/master.key"
 append :linked_dirs, "storage", "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
 
 # Default value for :format is :airbrussh.
