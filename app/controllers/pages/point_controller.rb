@@ -45,13 +45,16 @@ response = client.call(
 
 result = response.body[:realizar_consulta_sql_auth_response][:realizar_consulta_sql_auth_result]
 
+
 doc = Nokogiri::Slop(result)
+
 
 @result = doc.NewDataSet.Resultado
 
 
 rescue Exception => e 
  
+
 e.message
 
 
