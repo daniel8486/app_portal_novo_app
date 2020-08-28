@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   end
   namespace :pages do
     get 'points/index'
+    post 'points/index'
   end
   namespace :users do
     get 'login/index'
@@ -24,7 +25,9 @@ Rails.application.routes.draw do
   get '/v1/wsdl/meus-dados' => 'pages/dice#index'
   get '/v1/wsdl/espelho-do-ponto' => 'pages/point#index'
   get '/v1/wsdl/justificativa-de-excessoes' => 'pages/points#index'
+  post '/v1/wsdl/justificativa-de-excessoes' => 'pages/points/#ndex'
   delete 'v1/wsdl/sair' => 'pages/dashboard#delete'
+  #post '/v1/wsdl/enviar' => 'pages/point#index'
 
 
 end
