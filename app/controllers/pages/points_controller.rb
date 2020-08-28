@@ -162,12 +162,26 @@ class Pages::PointsController < PagesController
     )
   
     result = response.body[:save_record_auth_response][:save_record_auth_result]
+
+    doc = Nokogiri::Slop(result)
+  
+    @result = doc.NewDataSet.Resultado
+
+    
+    rescue Exception => e 
+ 
+
+    e.message
   
     puts result
 
     #@result = result
 
-    flash[:notice] = "Ponto Salvo com Sucesso ... #{result}"
+    flash[:notice] = "Ponto Salvo com Sucesso ... 
+                                                  CHAPA:#{ @result[params[:linha].to_i].CHAPA.content} 
+                                                / DATA: #{@result[params[:linha].to_i].DATA.content} 
+                                                / MOTIVO: #{params[:justificativa].to_s} 
+                                                / DADOS: #{ result } "
 
   end
 end
