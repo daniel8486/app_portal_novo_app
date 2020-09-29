@@ -27,7 +27,8 @@
                                 <div class="card-body ">
                                   <%= link_to 'Dados', '/v1/wsdl/meus-dados', class: 'btn btn-primary'%>
                                   <hr>
-                                  <a href="#" class="btn btn-primary"> Alteração Cadastral </a>
+                                  <a href="#" class="btn btn-primary" title="Função não Disponível" disabled> Alteração Cadastral </a>
+                                
                                     <hr>
                                     <div class="stats">
                                         <i class="fa fa-clock-o"></i> * Dados Pessoais
@@ -44,11 +45,11 @@
                                     <p class="card-category">veja seus contra cheques</p>
                                 </div>
                                 <div class="card-body ">
-                                  <%= link_to 'Contra-Cheque', '/v1/wsdl/inicio', class: 'btn btn-primary'%> 
+                                  <%= link_to 'Contra-Cheque', 'http://contracheque.pintos.com.br', class: 'btn btn-primary'%> 
                                   <hr>
-                                  <%= link_to 'Informe de Rendimentos', '/v1/wsdl/inicio', class: 'btn btn-primary'%> 
+                                  <%= link_to 'Informe de Rendimentos', '/v1/wsdl/inicio', class: 'btn btn-primary' , disabled: 'true', title: 'Função não Disponível'%> 
                                   <hr>
-                                  <%= link_to 'Histórico Salarial', '/v1/wsdl/inicio', class: 'btn btn-primary'%> 
+                                  <%= link_to 'Histórico Salarial', '/v1/wsdl/inicio', class: 'btn btn-primary' , disabled: 'true', title: 'Função não Disponível'%> 
                                     <hr>
                                     <div class="stats">
                                         <i class="fa fa-clock-o"></i> * Dados Financeiros

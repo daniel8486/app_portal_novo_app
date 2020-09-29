@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,142 +11,129 @@
 </head>
 
 <body>
-    
-        
-            <!-- End Navbar -->
-            <div class="content">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="card strpied-tabled-with-hover">
-                                <div class="card-header ">
+  <div class="content">
+    <div class="container-fluid">
+       <div class="row">
+          <div class="col-md-12">
+              <div class="card strpied-tabled-with-hover">
+                 <div class="card-header ">
+                     <hr>
+                         <h4 class="card-title">Justificaticas de Exceções </h4>
+                     <hr>    
+                     <% if flash[:notice].present? %>
+                      <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                          <strong>Justificativa Enviada : </strong> <%= flash[:notice] %>
+                          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div> 
+                      </div>
+                    <% end %>
+                    <div class="card-body table-full-width table-responsive">
+                        <table class="table table-hover table-striped">
+                            <thead>
+                                <th>Chapa</th>
+                                <th>Data</th>
+                                <th>Horas</th>
+                                <th>Inicio</th>
+                                <th>Fim</th>
+                                <th>Tipo</th>
+                                <th>Justificativa ( Selecione uma Opção )</th>
+                            </thead>
                                 <hr>
-                                    <h4 class="card-title">Justificaticas de Exceções </h4>
-                                <hr>    
-                                <% if flash[:notice].present? %>
-                                <div class="alert alert-primary alert-dismissible fade show" role="alert">
-                                    <strong>Justificativa Enviada : </strong> <%= flash[:notice] %>
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                      <span aria-hidden="true">&times;</span>
-                                    </button>
-                                  </div> 
-                                </div>
-                                <% end %>
-                                <div class="card-body table-full-width table-responsive">
-                                    <table class="table table-hover table-striped">
-                                        <thead>
-                                            <th>Chapa</th>
-                                            <th>Data</th>
-                                            <th>Horas</th>
-                                            <th>Inicio</th>
-                                            <th>Fim</th>
-                                            <th>Tipo</th>
-                                            <th>Justificativa ( Selecione uma Opção )</th>
-                                        </thead>
-                                         <hr>
-                                        <% index = 0 %>
-                                         <% if @result.present? %>
-                                          <% @result.each do |point_exe| %> 
-                                        <tbody>
-                                            <tr>
-                                                    <% point_exe.try(:CODCOLIGADA).try(:content)%>
-                                                    <td><%= point_exe.try(:CHAPA).try(:content) %></td>
-                                                    <td><%= point_exe.try(:DATA).try(:content)%></td>
-                                                    <% point_exe.try(:INICIO).try(:content)%>
-                                                    <% point_exe.try(:FIM).try(:content)%>
-                                                    <td><%= point_exe.try(:NUMHORASSTR).try(:content)%></td>
-                                                    <td><%= point_exe.try(:INICIOSTR).try(:content)%></td>
-                                                    <td><%= point_exe.try(:FIMSTR).try(:content)%></td>
-                                                    <td><%= point_exe.try(:TIPOOCORRENCIA).try(:content)%></td>
-                                                    <td> <div class="form-inline">
-  <%= form_tag pages_points_index_path do %>
-    <div class="form-group col-md-6">
-
-      <%= select_tag :justificativa, options_for_select([
-        "Ausencia - Agencia Bancaria(pagamento,cartao/pendencias da conta)",
-        "Ausencia - Alistamento Eleitoral",
-        "Ausencia - Alistamento Militar",
-        "Ausencia - Amamentacao",
-        ">Ausencia - Atestado Medico",
-        "Ausencia - Atestado Odontologico",
-        "Ausencia - Atraso na abertura da loja",
-        "Ausencia - Audiencia",
-        "Ausencia - Ausencia-Acompanhamento Filho/Esposa",
-        "Ausencia - Casamento",
-        "Ausencia - Compensacao CCT(Carnaval/Semana Santa)",
-        "Ausencia - Consulta Periodica",
-        "Ausencia - Dispensa Eleitoral",
-        "Ausencia - Dispensado",
-        "Ausencia - Doação de Sangue",
-        "Ausencia - Eleição",
-        "Ausencia - Expediente Encerrado",
-        "Ausencia - Folga DSR",
-        "Ausencia - Interesse Particular",
-        "Ausencia - Intimacao Judicial",
-        "Ausencia - Licença Paternidade",
-        "Ausencia - Obito - Pais,Avos,Filhos e Conjuge",
-        "Ausencia - Outros",
-        "Ausencia - Problema com Digital",
-        "Ausencia - Processo Admissional",
-        "Ausencia - Relogio de Ponto Inoperante",
-        "Ausencia - Saude(Consultas/Exames/Fisioterapia/Odontologico)",
-        "Ausencia - Sem Registro",
-        "Ausencia - SENAC",
-        "Ausencia - SENAC(Aula Extra/Trabalho)",
-        "Ausencia - Transporte (Congestionamento,onibus,etc)",
-        "Ausencia - Treinamento, Curso Empresa",
-        "Ausencia - Vestibular",
-        "Extra - Convenção Coletiva",
-        "Extra - Datas Especiais(Natal,Maes,etc)",
-        "Extra - Diversos",
-        "Extra - Não Autorizada",
-        "Extra - Reunião",
-        "Extra - Treinamento",
-        "Outros - Ausencia",
-        "Outros - Extra",
-        "Outros - Falta",
-        "Outros - Outros"], point_exe.try(:JUSTIFICATIVA).try(:content)), class: 'form-control' %>
-    </div> 
-    
-   
-    <div class="form-group col-md-6">
-      <%# <label>Informe a linha : </label> %>
-      <%= hidden_field_tag :linha , index, class: 'form-control'%> 
-    </div>
-  </div>
- <!-- <input type="text" placeholder="<%= point_exe.try(:JUSTIFICATIVA).try(:content)%>" class="form-control col-md-10"> -->
-  <% if point_exe.try(:JUSTIFICATIVA).try(:content) == nil %>
-    
-   <div class="form-group col-md-6">
-      <%= submit_tag "Enviar" , class: 'btn btn-primary' ,data: { confirm: " Enviando ... , #{ flash[:notice]} "} %>
-    </div>
-  </div>
-  <% end %>
- 
-
-  <% end %>
-</form>
-  
-      </td>  
-     </tr> 
-     
-<% index += 1%>
-      <% end %>
-     <% end %> </td>
-                                            </tr>
+                               <% index = 0 %>
+                                <% if @result.present? %>
+                                 <% @result.each do |point_exe| %> 
+                               <tbody>
+                                <tr>
+                                <% point_exe.try(:CODCOLIGADA).try(:content)%>
+                                <td><%= point_exe.try(:CHAPA).try(:content) %></td>
+                                <td><%= point_exe.try(:DATA).try(:content)%></td>
+                                <% point_exe.try(:INICIO).try(:content)%>
+                                <% point_exe.try(:FIM).try(:content)%>
+                                <td><%= point_exe.try(:NUMHORASSTR).try(:content)%></td>
+                                <td><%= point_exe.try(:INICIOSTR).try(:content)%></td>
+                                <td><%= point_exe.try(:FIMSTR).try(:content)%></td>
+                                <td><%= point_exe.try(:TIPOOCORRENCIA).try(:content)%></td>
+                                <td> 
+                                  <div class="form-inline">
+                                       <%= form_tag pages_points_index_path, method: :post do %>
+                                     <div class="form-group col-md-6">
+                                          <%= select_tag :justificativa, options_for_select([
+                                            "Ausencia - Agencia Bancaria(pagamento,cartao/pendencias da conta)",
+                                            "Ausencia - Alistamento Eleitoral",
+                                            "Ausencia - Alistamento Militar",
+                                            "Ausencia - Amamentacao",
+                                            "Ausencia - Atestado Medico",
+                                            "Ausencia - Atestado Odontologico",
+                                            "Ausencia - Atraso na abertura da loja",
+                                            "Ausencia - Audiencia",
+                                            "Ausencia - Ausencia-Acompanhamento Filho/Esposa",
+                                            "Ausencia - Casamento",
+                                            "Ausencia - Compensacao CCT(Carnaval/Semana Santa)",
+                                            "Ausencia - Consulta Periodica",
+                                            "Ausencia - Dispensa Eleitoral",
+                                            "Ausencia - Dispensado",
+                                            "Ausencia - Doação de Sangue",
+                                            "Ausencia - Eleição",
+                                            "Ausencia - Expediente Encerrado",
+                                            "Ausencia - Folga DSR",
+                                            "Ausencia - Interesse Particular",
+                                            "Ausencia - Intimacao Judicial",
+                                            "Ausencia - Licença Paternidade",
+                                            "Ausencia - Obito - Pais,Avos,Filhos e Conjuge",
+                                            "Ausencia - Outros",
+                                            "Ausencia - Problema com Digital",
+                                            "Ausencia - Processo Admissional",
+                                            "Ausencia - Relogio de Ponto Inoperante",
+                                            "Ausencia - Saude(Consultas/Exames/Fisioterapia/Odontologico)",
+                                            "Ausencia - Sem Registro",
+                                            "Ausencia - SENAC",
+                                            "Ausencia - SENAC(Aula Extra/Trabalho)",
+                                            "Ausencia - Transporte (Congestionamento,onibus,etc)",
+                                            "Ausencia - Treinamento, Curso Empresa",
+                                            "Ausencia - Vestibular",
+                                            "Extra - Convenção Coletiva",
+                                            "Extra - Datas Especiais(Natal,Maes,etc)",
+                                            "Extra - Diversos",
+                                            "Extra - Não Autorizada",
+                                            "Extra - Reunião",
+                                            "Extra - Treinamento",
+                                            "Outros - Ausencia",
+                                            "Outros - Extra",
+                                            "Outros - Falta",
+                                            "Outros - Outros"], 
+                                            point_exe.try(:JUSTIFICATIVA).try(:content)), class: 'form-control' %>
+                                        </div> 
+                                          <div class="form-group col-md-6">
+                                            <%# <label>Informe a linha : </label> %>
+                                            <%= hidden_field_tag :linha , index, class: 'form-control'%> 
+                                          </div>
+                                      </div>
+                                            <!-- <input type="text" placeholder="<%= point_exe.try(:JUSTIFICATIVA).try(:content)%>" class="form-control col-md-10"> -->
+                                           <% if point_exe.try(:JUSTIFICATIVA).try(:content) == nil %>
+                                      <div class="form-group col-md-6">
+                                            <%= submit_tag "Enviar" , class: 'btn btn-primary' ,data: { confirm: " Enviando ... , #{ flash[:notice]} "} %>
+                                          </div>
+                                        </div>
+                                           <% end %>
+                                           <%# if point_exe.try(:JUSTIFICATIVA).try(:content) == %>
                                            
+                                           <% end %>
+                                         </td>  
+                                        </tr> 
+                                           <% index += 1%>
+                                            <% end %>
+                                           <% end %> 
+                                          </td>
+                                        </tr>  
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
                         </div>
-                          
-        </div>
-    </div>
-
+                     </div>
+                 </div>
 </body>
 
-
-
 </html>
-
