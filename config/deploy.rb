@@ -48,6 +48,6 @@ append :linked_dirs, "storage", "log", "tmp/pids", "tmp/cache", "tmp/sockets", "
 after 'deploy:finished', 'deploy:restart'
 namespace :deploy do task :restart do
   invoke 'unicorn:stop'
-  #invoke 'unicorn:start'
+  invoke 'unicorn:start'
  end
 end
