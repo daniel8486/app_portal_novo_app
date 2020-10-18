@@ -1,6 +1,7 @@
 class Pages::PointController < PagesController
 
  def index  
+   
   if params[:commit].to_s == "Enviar"
     #puts "enviando valores"
      enviarDados(params[:data_ini],params[:data_fim]) 
@@ -49,7 +50,9 @@ result = response.body[:realizar_consulta_sql_auth_response][:realizar_consulta_
 doc = Nokogiri::Slop(result)
 
 
-@result = doc.NewDataSet.Resultado
+@result = doc.NewDataSet.Resultado 
+
+puts @result.DATA.strftime('%d/%m/%Y')
 
 
 rescue Exception => e 
